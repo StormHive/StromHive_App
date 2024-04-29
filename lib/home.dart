@@ -7,7 +7,6 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      //backgroundColor: Color.fromARGB(255, 0, 0, 0),
       body: Container(
         decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -28,38 +27,115 @@ class HomePage extends StatelessWidget {
                 Column(
                   children: <Widget>[
                     FadeInUp(
-                        duration: Duration(milliseconds: 1000),
-                        child: Text(
-                          "Welcome",
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 255, 255, 255),
-                              fontWeight: FontWeight.bold,
-                              fontSize: 30),
-                        )),
+                      duration: Duration(milliseconds: 1000),
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 3, horizontal: 6),
+                        child: Stack(
+                          children: [
+                            Text(
+                              "Welcome",
+                              style: TextStyle(
+                                color: Colors.black.withOpacity(0.7),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 36,
+                              ),
+                            ),
+                            Text(
+                              "Welcome",
+                              style: TextStyle(
+                                foreground: Paint()
+                                  ..style = PaintingStyle.stroke
+                                  ..strokeWidth = 1
+                                  ..color = const Color.fromARGB(255, 0, 0, 0),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 35,
+                              ),
+                            ),
+                            Text(
+                              "Welcome",
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 255, 255, 255),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 35,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                     SizedBox(
                       height: 20,
                     ),
                     FadeInUp(
-                        duration: Duration(milliseconds: 1200),
-                        child: Text(
-                          "To StormHive",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              color: Color.fromARGB(255, 203, 203, 203),
-                              fontSize: 25),
-                        )),
+                      duration: Duration(milliseconds: 1200),
+                      child: Container(
+                        padding:
+                            EdgeInsets.symmetric(vertical: 3, horizontal: 6),
+                        child: Stack(
+                          children: [
+                            Text(
+                              "To StormHive",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black.withOpacity(0.7),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25.5,
+                              ),
+                            ),
+                            Text(
+                              "To StormHive",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                foreground: Paint()
+                                  ..style = PaintingStyle.stroke
+                                  ..strokeWidth = 1
+                                  ..color = Color.fromARGB(255, 0, 0, 0),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25.5,
+                              ),
+                            ),
+                            Text(
+                              "To StormHive",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromARGB(255, 203, 203, 203),
+                                fontWeight: FontWeight.bold,
+                                fontSize: 25,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
                     Container(
                       margin: EdgeInsets.only(top: 20.0),
                       padding: EdgeInsets.all(20.0),
                       child: FadeInUp(
-                          duration: Duration(milliseconds: 1400),
-                          child: Text(
-                            "Your Trusted Partner for Software Solutions, Websites, Mobile Applications, and Automation Solutions",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(
-                                color: Color.fromARGB(255, 255, 255, 255),
-                                fontSize: 15),
-                          )),
+                        duration: Duration(milliseconds: 1400),
+                        child: Stack(
+                          children: [
+                            Text(
+                              "Your Trusted Partner for Software Solutions, Websites, Mobile Applications, and Automation Solutions",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Colors.black
+                                    .withOpacity(0.7), // Shadow color
+                                fontSize: 15,
+                              ),
+                            ),
+                            Text(
+                              "Your Trusted Partner for Software Solutions, Websites, Mobile Applications, and Automation Solutions",
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                color: Color.fromARGB(
+                                    255, 255, 255, 255), // Text color
+                                fontSize: 15,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                     )
                   ],
                 ),
@@ -67,9 +143,28 @@ class HomePage extends StatelessWidget {
                     duration: Duration(milliseconds: 1400),
                     child: Container(
                       height: MediaQuery.of(context).size.height / 3,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              image: AssetImage('assets/stormhive_icon.png'))),
+                      child: Stack(
+                        children: [
+                          // Image with shadow
+                          ColorFiltered(
+                            colorFilter: ColorFilter.mode(
+                              Colors.black
+                                  .withOpacity(0.5), // Shadow color and opacity
+                              BlendMode
+                                  .srcATop, // Apply the shadow only to the non-transparent parts of the image
+                            ),
+                            child: Image.asset(
+                              'assets/stormhive_icon.png',
+                              fit: BoxFit.contain, // Adjust the fit as needed
+                            ),
+                          ),
+                          // Image without shadow
+                          Image.asset(
+                            'assets/stormhive_icon.png',
+                            fit: BoxFit.contain, // Adjust the fit as needed
+                          ),
+                        ],
+                      ),
                     )),
                 Column(
                   children: <Widget>[
