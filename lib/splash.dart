@@ -1,4 +1,3 @@
-// ignore: file_names
 import 'package:flutter/material.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:stormhive/home.dart';
@@ -12,7 +11,7 @@ class SplashScreen extends StatelessWidget {
         AnimatedSplashScreen(
           splash: 'assets/stormhive_icon.png',
           duration: 5000,
-          nextScreen: HomePage(),
+          nextScreen: const HomePage(),
           splashTransition: SplashTransition.fadeTransition,
         ),
         Positioned(
@@ -21,7 +20,7 @@ class SplashScreen extends StatelessWidget {
           bottom: 20,
           child: AnimatedOpacity(
             opacity: 0,
-            duration: Duration(milliseconds: 1000),
+            duration: const Duration(milliseconds: 1000),
             child: Image.asset(
               'assets/stormhive_icon.png',
               width: 200,

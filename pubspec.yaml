@@ -64,6 +64,7 @@ flutter:
   assets:
     - assets/
     - assets/stormhive_icon.png
+    - assets/stormhive_logo.png
     - assets/cangurhu.png
     - assets/vod.jpg
     - assets/exlcomp.jpeg
@@ -71,6 +72,10 @@ flutter:
     - assets/birdog.png
     - assets/indeed.png
     - assets/handelsregister.jpg
+    - assets/webdevproj.jpg
+    - assets/Webdevelopment.jpg
+    - assets/Appdevelopment.png
+    - assets/Automation.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

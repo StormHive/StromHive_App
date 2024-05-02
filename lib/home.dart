@@ -8,7 +8,7 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
             gradient: LinearGradient(
           colors: [Color(0xff757f9a), Color(0xffd7dde8)],
           stops: [0.18, 1],
@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
           child: Container(
             width: double.infinity,
             height: MediaQuery.of(context).size.height,
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 50),
+            padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 50),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -27,10 +27,10 @@ class HomePage extends StatelessWidget {
                 Column(
                   children: <Widget>[
                     FadeInUp(
-                      duration: Duration(milliseconds: 1000),
+                      duration: const Duration(milliseconds: 1000),
                       child: Container(
                         padding:
-                            EdgeInsets.symmetric(vertical: 3, horizontal: 6),
+                            const EdgeInsets.symmetric(vertical: 3, horizontal: 6),
                         child: Stack(
                           children: [
                             Text(
@@ -52,7 +52,7 @@ class HomePage extends StatelessWidget {
                                 fontSize: 35,
                               ),
                             ),
-                            Text(
+                            const Text(
                               "Welcome",
                               style: TextStyle(
                                 color: Color.fromARGB(255, 255, 255, 255),
@@ -64,14 +64,14 @@ class HomePage extends StatelessWidget {
                         ),
                       ),
                     ),
-                    SizedBox(
+                    const SizedBox(
                       height: 20,
                     ),
                     FadeInUp(
-                      duration: Duration(milliseconds: 1200),
+                      duration: const Duration(milliseconds: 1200),
                       child: Container(
                         padding:
-                            EdgeInsets.symmetric(vertical: 3, horizontal: 6),
+                            const EdgeInsets.symmetric(vertical: 3, horizontal: 6),
                         child: Stack(
                           children: [
                             Text(
@@ -90,12 +90,12 @@ class HomePage extends StatelessWidget {
                                 foreground: Paint()
                                   ..style = PaintingStyle.stroke
                                   ..strokeWidth = 1
-                                  ..color = Color.fromARGB(255, 0, 0, 0),
+                                  ..color = const Color.fromARGB(255, 0, 0, 0),
                                 fontWeight: FontWeight.bold,
                                 fontSize: 25.5,
                               ),
                             ),
-                            Text(
+                            const Text(
                               "To StormHive",
                               textAlign: TextAlign.center,
                               style: TextStyle(
@@ -109,10 +109,10 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: EdgeInsets.only(top: 20.0),
-                      padding: EdgeInsets.all(20.0),
+                      margin: const EdgeInsets.only(top: 20.0),
+                      padding: const EdgeInsets.all(20.0),
                       child: FadeInUp(
-                        duration: Duration(milliseconds: 1400),
+                        duration: const Duration(milliseconds: 1400),
                         child: Stack(
                           children: [
                             Text(
@@ -120,16 +120,16 @@ class HomePage extends StatelessWidget {
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Colors.black
-                                    .withOpacity(0.7), // Shadow color
+                                    .withOpacity(0.7),
                                 fontSize: 15,
                               ),
                             ),
-                            Text(
+                            const Text(
                               "Your Trusted Partner for Software Solutions, Websites, Mobile Applications, and Automation Solutions",
                               textAlign: TextAlign.center,
                               style: TextStyle(
                                 color: Color.fromARGB(
-                                    255, 255, 255, 255), // Text color
+                                    255, 255, 255, 255),
                                 fontSize: 15,
                               ),
                             ),
@@ -140,27 +140,26 @@ class HomePage extends StatelessWidget {
                   ],
                 ),
                 FadeInUp(
-                    duration: Duration(milliseconds: 1400),
-                    child: Container(
+                    duration: const Duration(milliseconds: 1400),
+                    child: SizedBox(
                       height: MediaQuery.of(context).size.height / 3,
                       child: Stack(
                         children: [
-                          // Image with shadow
                           ColorFiltered(
                             colorFilter: ColorFilter.mode(
                               Colors.black
-                                  .withOpacity(0.5), // Shadow color and opacity
+                                  .withOpacity(0.5), 
                               BlendMode
                                   .srcATop, // Apply the shadow only to the non-transparent parts of the image
                             ),
                             child: Image.asset(
-                              'assets/stormhive_icon.png',
+                              'assets/stormhive_logo.png',
                               fit: BoxFit.contain, // Adjust the fit as needed
                             ),
                           ),
                           // Image without shadow
                           Image.asset(
-                            'assets/stormhive_icon.png',
+                            'assets/stormhive_logo.png',
                             fit: BoxFit.contain, // Adjust the fit as needed
                           ),
                         ],
@@ -169,12 +168,12 @@ class HomePage extends StatelessWidget {
                 Column(
                   children: <Widget>[
                     FadeInUp(
-                        duration: Duration(milliseconds: 1600),
+                        duration: const Duration(milliseconds: 1600),
                         child: Container(
-                          padding: EdgeInsets.only(top: 3, left: 3),
+                          padding: const EdgeInsets.only(top: 3, left: 3),
                           decoration: BoxDecoration(
                               borderRadius: BorderRadius.circular(50),
-                              border: Border(
+                              border: const Border(
                                 bottom: BorderSide(color: Colors.black),
                                 top: BorderSide(color: Colors.black),
                                 left: BorderSide(color: Colors.black),
@@ -189,11 +188,11 @@ class HomePage extends StatelessWidget {
                                   MaterialPageRoute(
                                       builder: (context) => const FirstPage()));
                             },
-                            color: Color.fromARGB(255, 240, 240, 240),
+                            color: const Color.fromARGB(255, 240, 240, 240),
                             elevation: 0,
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(50)),
-                            child: Text(
+                            child: const Text(
                               "Tap here for Excellence",
                               style: TextStyle(
                                   fontWeight: FontWeight.w600, fontSize: 18),
