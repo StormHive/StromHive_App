@@ -76,6 +76,9 @@ flutter:
     - assets/Webdevelopment.jpg
     - assets/Appdevelopment.png
     - assets/Automation.jpg
+    - assets/SaadAhmad.jpeg
+    - assets/AhmadAamir.jpeg
+    - assets/Aliabdullah.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

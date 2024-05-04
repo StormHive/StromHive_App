@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:stormhive/companyprofile.dart';
 import 'package:stormhive/projects.dart';
-
+import 'package:stormhive/teamscreen.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -27,9 +28,9 @@ class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const Text('Index 0: Home'),
+    CompanyProfile(),
     const ProjectsScreen(),
-    const Text('Index 2: Profile'),
+    TeamScreen(),
   ];
 
   void _onItemTapped(int index) {
@@ -41,6 +42,40 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            const UserAccountsDrawerHeader(
+              accountName: Text('StormHive'),
+              accountEmail: Text('saadrashid334@gmail.com'),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('assets/stormhive_icon.jpg'),
+              ),
+            ),
+            ListTile(
+              title: const Text('Item 1'),
+              onTap: () {
+                // Add your onTap logic here
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+            ListTile(
+              title: const Text('Item 2'),
+              onTap: () {
+                // Add your onTap logic here
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+            ListTile(
+              title: const Text('Item 3'),
+              onTap: () {
+                // Add your onTap logic here
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+          ],
+        ),
+      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
