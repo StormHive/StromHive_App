@@ -11,6 +11,50 @@ class FirstPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('StormHive'),
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+            );
+          },
+        ),
+      ),
+      drawer: Drawer(
+        child: ListView(
+          children: <Widget>[
+            const UserAccountsDrawerHeader(
+              accountName: Text('StormHive'),
+              accountEmail: Text('saadrashid334@gmail.com'),
+              currentAccountPicture: CircleAvatar(
+                backgroundImage: AssetImage('assets/stormhive_icon.png'),
+              ),
+            ),
+            ListTile(
+              title: const Text('Item 1'),
+              onTap: () {
+                // Add your onTap logic here
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+            ListTile(
+              title: const Text('Item 2'),
+              onTap: () {
+                // Add your onTap logic here
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+            ListTile(
+              title: const Text('Item 3'),
+              onTap: () {
+                // Add your onTap logic here
+                Navigator.pop(context); // Close the drawer
+              },
+            ),
+          ],
+        ),
       ),
       body: const MainScreen(),
     );
@@ -42,40 +86,6 @@ class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: Drawer(
-        child: ListView(
-          children: <Widget>[
-            const UserAccountsDrawerHeader(
-              accountName: Text('StormHive'),
-              accountEmail: Text('saadrashid334@gmail.com'),
-              currentAccountPicture: CircleAvatar(
-                backgroundImage: AssetImage('assets/stormhive_icon.jpg'),
-              ),
-            ),
-            ListTile(
-              title: const Text('Item 1'),
-              onTap: () {
-                // Add your onTap logic here
-                Navigator.pop(context); // Close the drawer
-              },
-            ),
-            ListTile(
-              title: const Text('Item 2'),
-              onTap: () {
-                // Add your onTap logic here
-                Navigator.pop(context); // Close the drawer
-              },
-            ),
-            ListTile(
-              title: const Text('Item 3'),
-              onTap: () {
-                // Add your onTap logic here
-                Navigator.pop(context); // Close the drawer
-              },
-            ),
-          ],
-        ),
-      ),
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),

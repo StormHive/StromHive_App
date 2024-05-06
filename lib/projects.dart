@@ -26,7 +26,7 @@ class ProjectsScreen extends StatelessWidget {
                   );
                 },
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 25),
               ProjectCard(
                 title: 'Automation Tools',
                 imageAsset: 'assets/Automation.jpg',
@@ -38,7 +38,7 @@ class ProjectsScreen extends StatelessWidget {
                   );
                 },
               ),
-              SizedBox(height: 16),
+              SizedBox(height: 25),
               ProjectCard(
                 title: 'Mobile Applications',
                 imageAsset: 'assets/Appdevelopment.png',
@@ -72,13 +72,14 @@ class ProjectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    double cardWidth = MediaQuery.of(context).size.width * 0.8;
     return GestureDetector(
       onTap: onPressed,
       child: Container(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(10.0),
+        width: cardWidth,
         constraints: const BoxConstraints.expand(
-          width: 350,
-          height: 250,
+          height: 300,
         ),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(Radius.circular(10.0)),

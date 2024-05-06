@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:stormhive/contactus.dart';
 
 class CompanyProfile extends StatelessWidget {
+  const CompanyProfile({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -58,6 +60,76 @@ class CompanyProfile extends StatelessWidget {
                       fontSize: 16.0,
                       color: Colors.grey[700],
                     ),
+                  ),
+                  SizedBox(height: 10.0),
+                  Text(
+                    'Our Services:',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  SizedBox(height: 5.0),
+                  Row(
+                    children: [
+                      Icon(Icons.help),
+                      SizedBox(width: 5.0),
+                      Text(
+                        'Problem Solving',
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.web),
+                      SizedBox(width: 5.0),
+                      Text(
+                        'Website Development',
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.mobile_screen_share),
+                      SizedBox(width: 5.0),
+                      Text(
+                        'Application Development',
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.cloud_upload),
+                      SizedBox(width: 5.0),
+                      Text(
+                        'Deployment',
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.cloud),
+                      SizedBox(width: 5.0),
+                      Text(
+                        'AWS Services',
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Icon(Icons.settings),
+                      SizedBox(width: 5.0),
+                      Text(
+                        'Automation Tools Creation',
+                        style: TextStyle(fontSize: 16.0),
+                      ),
+                    ],
                   ),
                   SizedBox(height: 10.0),
                   Text(

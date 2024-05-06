@@ -31,7 +31,7 @@ class TeamMemberCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       elevation: 4.0,
-      margin: EdgeInsets.all(10.0),
+      margin: EdgeInsets.all(20.0),
       child: Padding(
         padding: EdgeInsets.all(10.0),
         child: Column(
