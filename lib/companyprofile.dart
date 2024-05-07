@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stormhive/contactus.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class CompanyProfile extends StatelessWidget {
   const CompanyProfile({super.key});
@@ -7,171 +8,247 @@ class CompanyProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(20.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            SizedBox(
-              width: double.infinity,
-              child: Image.asset(
-                'assets/stormhive_logo.png',
-                fit: BoxFit.cover,
-              ),
-            ),
-            SizedBox(height: 10.0),
-            Container(
-              padding: EdgeInsets.symmetric(horizontal: 10.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  SizedBox(height: 10.0),
-                  Text(
-                    'Welcome to StormHive - Your Partner in Digital Transformation!',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'At StormHive, we are a leading software solution company dedicated to providing innovative digital solutions tailored to meet the unique needs of our clients. Specializing in online solutions, web applications, automation tools, and mobile applications, we empower businesses to thrive in the digital age.',
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.grey[700],
-                    ),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'Our Mission:',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(height: 5.0),
-                  Text(
-                    'To deliver cutting-edge software solutions that drive innovation, streamline processes, and exceed our clients\' expectations.',
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.grey[700],
-                    ),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'Our Services:',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(height: 5.0),
-                  Container(
-                    padding: EdgeInsets.all(16.0),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            Expanded(
-                              child: _buildServiceTile(
-                                  context, Icons.help, 'Problem Solving'),
-                            ),
-                            Expanded(
-                              child: _buildServiceTile(
-                                  context, Icons.web, 'Website Development'),
-                            ),
-                            Expanded(
-                              child: _buildServiceTile(
-                                  context,
-                                  Icons.mobile_screen_share,
-                                  'Application Development'),
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: 16.0),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            _buildServiceTile(
-                                context, Icons.cloud_upload, 'Deployment'),
-                            _buildServiceTile(
-                                context, Icons.cloud, 'AWS Services'),
-                          ],
-                        ),
-                        SizedBox(height: 16.0),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            _buildServiceTile(context, Icons.settings,
-                                'Automation Tools Creation'),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                  SizedBox(height: 10.0),
-                  Text(
-                    'Our Vision:',
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
-                    ),
-                  ),
-                  SizedBox(height: 5.0),
-                  Text(
-                    'To be the preferred partner for businesses seeking digital transformation through exceptional software solutions.',
-                    textAlign: TextAlign.justify,
-                    style: TextStyle(
-                      fontSize: 16.0,
-                      color: Colors.grey[700],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            ContactUsCard(),
-            SizedBox(height: 20.0),
-            ListTile(
-              leading: Icon(Icons.ac_unit_sharp),
-              title: Text('Website'),
-              subtitle: Text('StormHive.com'),
-            ),
-            Divider(),
-            ListTile(
-              leading: Icon(Icons.location_on),
-              title: Text('Location'),
-              subtitle: Text('Lahore, Pakistan'),
-            ),
-            Divider(),
-            ListTile(
-              leading: Icon(Icons.phone),
-              title: Text('Contact'),
-              subtitle: Text('+92 308-8677122'),
-            ),
-            Divider(),
-            ListTile(
-              leading: Icon(Icons.email),
-              title: Text('Email'),
-              subtitle: Text('saadrashid334@gmail.com'),
-            ),
-            Divider(),
-            // Add more information as needed
+      body: Container(
+        decoration: const BoxDecoration(
+            gradient: const LinearGradient(
+          colors: [
+            Color.fromARGB(238, 4, 194, 80),
+            Color.fromARGB(239, 2, 162, 66)
           ],
+          stops: [0.1, 1],
+          begin: Alignment(0.0, -1.1),
+          end: Alignment(0.0, 1.4),
+        )),
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: double.infinity,
+                child: Image.asset(
+                  'assets/stormhive.png',
+                  fit: BoxFit.cover,
+                ),
+              ),
+              SizedBox(height: 10.0),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SizedBox(height: 10.0),
+                    Text(
+                      'Welcome to StormHive - Your Partner in Digital Transformation!',
+                      style: GoogleFonts.freehand(
+                        textStyle: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    Text(
+                      'At StormHive, we are a leading software solution company dedicated to providing innovative digital solutions tailored to meet the unique needs of our clients. Specializing in online solutions, web applications, automation tools, and mobile applications, we empower businesses to thrive in the digital age.',
+                      textAlign: TextAlign.justify,
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    Text(
+                      'Our Mission:',
+                      style: GoogleFonts.freehand(
+                        textStyle: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 5.0),
+                    Text(
+                      'To deliver cutting-edge software solutions that drive innovation, streamline processes, and exceed our clients\' expectations.',
+                      textAlign: TextAlign.justify,
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    Text(
+                      'Our Services:',
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.amber,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 5.0),
+                    Container(
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              Expanded(
+                                child: _buildServiceTile(context, Icons.help,
+                                    iconColor:
+                                        const Color.fromARGB(255, 255, 230, 0),
+                                    title: 'Problem Solving'),
+                              ),
+                              Expanded(
+                                child: _buildServiceTile(context, Icons.web,
+                                    iconColor: Color.fromARGB(255, 255, 100, 4),
+                                    title: 'Website Development'),
+                              ),
+                              Expanded(
+                                child: _buildServiceTile(
+                                    context, Icons.mobile_screen_share,
+                                    iconColor: Color.fromARGB(255, 254, 2, 2),
+                                    title: 'Application Development'),
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 16.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: [
+                              _buildServiceTile(context, Icons.cloud_upload,
+                                  iconColor: Color.fromARGB(255, 59, 235, 255),
+                                  title: 'Deployment'),
+                              _buildServiceTile(context, Icons.cloud,
+                                  iconColor: Colors.blueAccent.shade700,
+                                  title: 'AWS Services'),
+                            ],
+                          ),
+                          SizedBox(height: 16.0),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              _buildServiceTile(context, Icons.settings,
+                                  iconColor: Color.fromARGB(255, 90, 108, 117),
+                                  title: 'Automation Tools Creation'),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(height: 10.0),
+                    Text(
+                      'Our Vision:',
+                      style: GoogleFonts.freehand(
+                        textStyle: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 5.0),
+                    Text(
+                      'To be the preferred partner for businesses seeking digital transformation through exceptional software solutions.',
+                      textAlign: TextAlign.justify,
+                      style: GoogleFonts.poppins(
+                        textStyle: TextStyle(
+                          fontSize: 16.0,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              ContactUsCard(),
+              SizedBox(height: 20.0),
+              ListTile(
+                leading: Icon(Icons.ac_unit_sharp),
+                title: Text(
+                  'Website',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                subtitle: Text(
+                  'StormHive.com',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(Icons.location_on),
+                title: Text(
+                  'Location',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                subtitle: Text(
+                  'Lahore, Pakistan',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(Icons.phone),
+                title: Text(
+                  'Contact',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                subtitle: Text(
+                  '+92 308-8677122',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Divider(),
+              ListTile(
+                leading: Icon(Icons.email),
+                title: Text(
+                  'Email',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.black,
+                  ),
+                ),
+                subtitle: Text(
+                  'saadrashid334@gmail.com',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+              Divider(),
+              // Add more information as needed
+            ],
+          ),
         ),
       ),
     );
   }
 }
 
-Widget _buildServiceTile(
-    BuildContext context, IconData iconData, String title) {
+Widget _buildServiceTile(BuildContext context, IconData iconData,
+    {Color? iconColor, required String title}) {
   double iconSize = MediaQuery.of(context).size.width * 0.1;
   double fontSize = MediaQuery.of(context).size.width * 0.03;
   return Container(
@@ -182,11 +259,15 @@ Widget _buildServiceTile(
         Icon(
           iconData,
           size: iconSize,
+          color: iconColor,
         ),
         SizedBox(height: 5.0),
         Text(
           title,
-          style: TextStyle(fontSize: fontSize),
+          style: TextStyle(
+            fontSize: fontSize,
+            color: Colors.white,
+          ),
           textAlign: TextAlign.center,
         ),
       ],

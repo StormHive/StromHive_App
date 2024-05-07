@@ -20,7 +20,7 @@ class Team {
       'assets/SaadAhmad.jpeg',
       'Software Engineer',
       'CEO',
-      'Over three years of experience',
+      'More than 3 years',
       'Project Management, Strategic Logics, Solutions Architect, Mobile Application Development',
     ),
     Team(
@@ -28,7 +28,7 @@ class Team {
       'assets/Aliabdullah.jpeg',
       'Software Engineer',
       'CTO',
-      'Over three years of experience',
+      'More than 3 years',
       'Pyhton, Django, AWS, Website Development',
     ),
     Team(
@@ -36,7 +36,7 @@ class Team {
       'assets/AhmadAamir.jpeg',
       'Software Engineer',
       'COO',
-      'Over three years of experience',
+      'More than 3 years',
       'Designing, Reactjs, Bootstrap, Frontend Development',
     ),
   ];

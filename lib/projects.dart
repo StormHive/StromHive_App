@@ -9,48 +9,54 @@ class ProjectsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        padding: EdgeInsets.all(16.0),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              ProjectCard(
-                title: 'Web Applications',
-                imageAsset: 'assets/Webdevelopment.jpg',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const WebsiteProjectsScreen()),
-                  );
-                },
-              ),
-              SizedBox(height: 25),
-              ProjectCard(
-                title: 'Automation Tools',
-                imageAsset: 'assets/Automation.jpg',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const AutomationProjectsScreen()),
-                  );
-                },
-              ),
-              SizedBox(height: 25),
-              ProjectCard(
-                title: 'Mobile Applications',
-                imageAsset: 'assets/Appdevelopment.png',
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const MobileAppProjectsScreen()),
-                  );
-                },
-              ),
-            ],
+      body: Container(
+        color: Color(0xFF05522B), // Set background color here
+
+        child: SingleChildScrollView(
+          padding: EdgeInsets.all(16.0),
+          child: Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                ProjectCard(
+                  title: 'Web Applications',
+                  imageAsset: 'assets/Webdevelopment.jpg',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const WebsiteProjectsScreen()),
+                    );
+                  },
+                ),
+                SizedBox(height: 25),
+                ProjectCard(
+                  title: 'Automation Tools',
+                  imageAsset: 'assets/Automation.jpg',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              const AutomationProjectsScreen()),
+                    );
+                  },
+                ),
+                SizedBox(height: 25),
+                ProjectCard(
+                  title: 'Mobile Applications',
+                  imageAsset: 'assets/Appdevelopment.png',
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) =>
+                              const MobileAppProjectsScreen()),
+                    );
+                  },
+                ),
+              ],
+            ),
           ),
         ),
       ),
@@ -85,7 +91,7 @@ class ProjectCard extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(10.0)),
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.5),
+              color: const Color.fromARGB(255, 61, 61, 61).withOpacity(0.5),
               spreadRadius: 5,
               blurRadius: 7,
               offset: Offset(0, 3),

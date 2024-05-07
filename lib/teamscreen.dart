@@ -61,6 +61,7 @@ class TeamMemberCard extends StatelessWidget {
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
                           teamMember.name,
@@ -90,7 +91,7 @@ class TeamMemberCard extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  teamMember.expertise,
+                  'Expertise: ${teamMember.expertise}',
                   style: TextStyle(
                     fontSize: 16.0,
                     color: const Color.fromARGB(255, 48, 48, 48),
@@ -98,7 +99,7 @@ class TeamMemberCard extends StatelessWidget {
                 ),
                 SizedBox(height: 5.0),
                 Text(
-                  teamMember.experience,
+                  'Experience: ${teamMember.experience}',
                   style: TextStyle(
                     fontSize: 16.0,
                     color: const Color.fromARGB(255, 48, 48, 48),

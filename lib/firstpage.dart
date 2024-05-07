@@ -11,6 +11,7 @@ class FirstPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('StormHive'),
+        backgroundColor: Color.fromARGB(255, 0, 157, 63),
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -56,7 +57,7 @@ class FirstPage extends StatelessWidget {
           ],
         ),
       ),
-      body: const MainScreen(),
+      body: const MainScreen(), // Set background color here
     );
   }
 }
@@ -90,6 +91,7 @@ class _MainScreenState extends State<MainScreen> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: const Color.fromARGB(255, 0, 157, 63),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
