@@ -71,65 +71,49 @@ class CompanyProfile extends StatelessWidget {
                     ),
                   ),
                   SizedBox(height: 5.0),
-                  Row(
-                    children: [
-                      Icon(Icons.help),
-                      SizedBox(width: 5.0),
-                      Text(
-                        'Problem Solving',
-                        style: TextStyle(fontSize: 16.0),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Icon(Icons.web),
-                      SizedBox(width: 5.0),
-                      Text(
-                        'Website Development',
-                        style: TextStyle(fontSize: 16.0),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Icon(Icons.mobile_screen_share),
-                      SizedBox(width: 5.0),
-                      Text(
-                        'Application Development',
-                        style: TextStyle(fontSize: 16.0),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Icon(Icons.cloud_upload),
-                      SizedBox(width: 5.0),
-                      Text(
-                        'Deployment',
-                        style: TextStyle(fontSize: 16.0),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Icon(Icons.cloud),
-                      SizedBox(width: 5.0),
-                      Text(
-                        'AWS Services',
-                        style: TextStyle(fontSize: 16.0),
-                      ),
-                    ],
-                  ),
-                  Row(
-                    children: [
-                      Icon(Icons.settings),
-                      SizedBox(width: 5.0),
-                      Text(
-                        'Automation Tools Creation',
-                        style: TextStyle(fontSize: 16.0),
-                      ),
-                    ],
+                  Container(
+                    padding: EdgeInsets.all(16.0),
+                    child: Column(
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Expanded(
+                              child: _buildServiceTile(
+                                  context, Icons.help, 'Problem Solving'),
+                            ),
+                            Expanded(
+                              child: _buildServiceTile(
+                                  context, Icons.web, 'Website Development'),
+                            ),
+                            Expanded(
+                              child: _buildServiceTile(
+                                  context,
+                                  Icons.mobile_screen_share,
+                                  'Application Development'),
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: 16.0),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            _buildServiceTile(
+                                context, Icons.cloud_upload, 'Deployment'),
+                            _buildServiceTile(
+                                context, Icons.cloud, 'AWS Services'),
+                          ],
+                        ),
+                        SizedBox(height: 16.0),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            _buildServiceTile(context, Icons.settings,
+                                'Automation Tools Creation'),
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                   SizedBox(height: 10.0),
                   Text(
@@ -184,4 +168,28 @@ class CompanyProfile extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _buildServiceTile(
+    BuildContext context, IconData iconData, String title) {
+  double iconSize = MediaQuery.of(context).size.width * 0.1;
+  double fontSize = MediaQuery.of(context).size.width * 0.03;
+  return Container(
+    padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(
+          iconData,
+          size: iconSize,
+        ),
+        SizedBox(height: 5.0),
+        Text(
+          title,
+          style: TextStyle(fontSize: fontSize),
+          textAlign: TextAlign.center,
+        ),
+      ],
+    ),
+  );
 }
