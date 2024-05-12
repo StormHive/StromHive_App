@@ -20,15 +20,16 @@ class Team {
       imageUrl: 'assets/SaadAhmad.jpeg',
       expertise: 'Software Engineer',
       position: 'CEO',
-      experience:'More than 3 years',
-      skills: 'Project Management, Strategic Logics, Solutions Architect, Mobile Application Development', 
+      experience: 'More than 3 years',
+      skills:
+          'Project Management, Strategic Logics, Solutions Architect, Mobile Application Development',
     ),
     Team(
       name: 'Ali Abdullah',
       imageUrl: 'assets/Aliabdullah.jpeg',
       expertise: 'Software Engineer',
       position: 'CTO',
-      experience:'More than 3 years',
+      experience: 'More than 3 years',
       skills: 'Pyhton, Django, AWS, Website Development',
     ),
     Team(
@@ -36,17 +37,13 @@ class Team {
       imageUrl: 'assets/AhmadAamir.jpeg',
       expertise: 'Software Engineer',
       position: 'COO',
-      experience:'More than 3 years',
+      experience: 'More than 3 years',
       skills: 'Designing, Reactjs, Bootstrap, Frontend Development',
     ),
   ];
 
   static void addMember(Team member) {
     projects.add(member);
-  }
-
-  static void updateMember(int index, Team updatedMember) {
-    projects[index] = updatedMember;
   }
 
   static void deleteMember(int index) {

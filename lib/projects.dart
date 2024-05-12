@@ -10,8 +10,16 @@ class ProjectsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Color(0xFF05522B), // Set background color here
-
+        decoration: const BoxDecoration(
+            gradient: const LinearGradient(
+          colors: [
+            Color.fromARGB(255, 111, 48, 148),
+            Color.fromARGB(255, 49, 27, 87),
+          ],
+          stops: [0.1, 1],
+          begin: Alignment(0.0, -1.1),
+          end: Alignment(0.0, 1.4),
+        )),
         child: SingleChildScrollView(
           padding: EdgeInsets.all(16.0),
           child: Center(
@@ -60,43 +68,6 @@ class ProjectsScreen extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showDialog(
-            context: context,
-            builder: (context) {
-              return AlertDialog(
-                title: Text('Add Category'),
-                content: TextField(
-                  decoration: InputDecoration(hintText: 'Enter category name'),
-                  onChanged: (value) {
-                    // Handle changes in the text field
-                  },
-                ),
-                actions: [
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: Text('Cancel'),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      // Implement functionality to add the new category
-                      // You can use the entered category name stored in the text field
-                      Navigator.pop(context);
-                    },
-                    child: Text('Add'),
-                  ),
-                ],
-              );
-            },
-          );
-        },
-        child: Icon(Icons.add),
-        backgroundColor: Colors.blue, // Set the FAB background color
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

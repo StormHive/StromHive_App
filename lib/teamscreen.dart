@@ -13,25 +13,37 @@ class _TeamScreenState extends State<TeamScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: ListView.builder(
-        itemCount: teamMembers.length,
-        itemBuilder: (BuildContext context, int index) {
-          return TeamMemberCard(
-            teamMember: teamMembers[index],
-            onDelete: () {
-              _deleteTeamMember(index);
-            },
-            onEdit: () {
-              _navigateToEditScreen(context, teamMembers[index], index);
-            },
-          );
-        },
+      body: Container(
+        decoration: const BoxDecoration(
+            gradient: const LinearGradient(
+          colors: [
+            Color.fromARGB(255, 111, 48, 148),
+            Color.fromARGB(255, 49, 27, 87),
+          ],
+          stops: [0.1, .71],
+          begin: Alignment(0.0, -1.1),
+          end: Alignment(0.0, 1.4),
+        )),
+        child: ListView.builder(
+          itemCount: teamMembers.length,
+          itemBuilder: (BuildContext context, int index) {
+            return TeamMemberCard(
+              teamMember: teamMembers[index],
+              onDelete: () {
+                _deleteTeamMember(index);
+              },
+            );
+          },
+        ),
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
             context,
-            MaterialPageRoute(builder: (context) => AddTeamMemberScreen()),
+            MaterialPageRoute(
+                builder: (context) => AddTeamMemberScreen(
+                      onAddMember: addTeamMember,
+                    )),
           );
         },
         child: Icon(Icons.add),
@@ -50,39 +62,16 @@ class _TeamScreenState extends State<TeamScreen> {
       Team.deleteMember(index);
     });
   }
-
-  void _navigateToEditScreen(BuildContext context, Team teamMember, int index) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => EditTeamMemberScreen(
-          teamMember: teamMember,
-          onUpdate: (updatedMember) {
-            _updateTeamMember(index, updatedMember);
-            Navigator.pop(context);
-          },
-        ),
-      ),
-    );
-  }
-
-  void _updateTeamMember(int index, Team updatedMember) {
-    setState(() {
-      Team.updateMember(index, updatedMember);
-    });
-  }
 }
 
 class TeamMemberCard extends StatelessWidget {
   final Team teamMember;
   final VoidCallback onDelete;
-  final VoidCallback onEdit;
 
   const TeamMemberCard({
     Key? key,
     required this.teamMember,
     required this.onDelete,
-    required this.onEdit,
   }) : super(key: key);
 
   @override
@@ -178,10 +167,6 @@ class TeamMemberCard extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.end,
             children: [
               IconButton(
-                icon: Icon(Icons.edit),
-                onPressed: onEdit,
-              ),
-              IconButton(
                 icon: Icon(Icons.delete),
                 onPressed: onDelete,
               ),
@@ -190,38 +175,5 @@ class TeamMemberCard extends StatelessWidget {
         ],
       ),
     );
-  }
-}
-
-void _navigateToEditScreen(BuildContext context, Team teamMember, int index) {
-  Navigator.push(
-    context,
-    MaterialPageRoute(
-      builder: (context) => EditTeamMemberScreen(
-        teamMember: teamMember,
-        onUpdate: (updatedMember) {
-         // _updateTeamMember(index, updatedMember);
-          Navigator.pop(context);
-        },
-      ),
-    ),
-  );
-}
-
-class EditTeamMemberScreen extends StatelessWidget {
-  final Team teamMember;
-  final Function(Team) onUpdate;
-
-  const EditTeamMemberScreen({
-    Key? key,
-    required this.teamMember,
-    required this.onUpdate,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    // Implement UI for editing team member details using a form
-    // When the form is submitted, call onUpdate with the updated team member
-    throw UnimplementedError();
   }
 }

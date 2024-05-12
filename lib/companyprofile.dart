@@ -3,18 +3,7 @@ import 'package:stormhive/contactus.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CompanyProfile extends StatelessWidget {
-  final ScrollController _scrollController = ScrollController();
-
   CompanyProfile({super.key});
-  void scrollToOurServices() {
-        print("Scrolling to Our Services");
-
-    _scrollController.animateTo(
-      _scrollController.position.maxScrollExtent, // Scroll to the bottom
-      duration: Duration(milliseconds: 500),
-      curve: Curves.easeInOut,
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +12,8 @@ class CompanyProfile extends StatelessWidget {
         decoration: const BoxDecoration(
             gradient: const LinearGradient(
           colors: [
-            Color.fromARGB(238, 4, 194, 80),
-            Color.fromARGB(239, 2, 162, 66)
+            Color.fromARGB(255, 111, 48, 148),
+            Color.fromARGB(255, 49, 27, 87),
           ],
           stops: [0.1, 1],
           begin: Alignment(0.0, -1.1),
@@ -182,12 +171,14 @@ class CompanyProfile extends StatelessWidget {
               ContactUsCard(),
               SizedBox(height: 20.0),
               ListTile(
-                leading: Icon(Icons.ac_unit_sharp),
+                leading: Icon(Icons.ac_unit_sharp, color: Colors.amber,),
                 title: Text(
                   'Website',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 subtitle: Text(
@@ -199,12 +190,14 @@ class CompanyProfile extends StatelessWidget {
               ),
               Divider(),
               ListTile(
-                leading: Icon(Icons.location_on),
+                leading: Icon(Icons.location_on, color: Colors.white,),
                 title: Text(
                   'Location',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 subtitle: Text(
@@ -216,12 +209,14 @@ class CompanyProfile extends StatelessWidget {
               ),
               Divider(),
               ListTile(
-                leading: Icon(Icons.phone),
+                leading: Icon(Icons.phone, color: Colors.white,),
                 title: Text(
                   'Contact',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 subtitle: Text(
@@ -233,12 +228,14 @@ class CompanyProfile extends StatelessWidget {
               ),
               Divider(),
               ListTile(
-                leading: Icon(Icons.email),
+                leading: Icon(Icons.email, color: Colors.white,),
                 title: Text(
                   'Email',
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: Colors.black,
+                  style: GoogleFonts.poppins(
+                    textStyle: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                    ),
                   ),
                 ),
                 subtitle: Text(

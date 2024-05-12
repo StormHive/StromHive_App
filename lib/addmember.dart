@@ -2,18 +2,24 @@ import 'package:flutter/material.dart';
 import 'package:stormhive/team.dart';
 
 class AddTeamMemberScreen extends StatelessWidget {
+  final Function(Team) onAddMember; // Declare the function reference
+  AddTeamMemberScreen({required this.onAddMember}); // Constructor
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Add Team Member'),
       ),
-      body: AddMemberForm(),
+      body: AddMemberForm(onAddMember: onAddMember),
     );
   }
 }
 
 class AddMemberForm extends StatefulWidget {
+  final Function(Team) onAddMember; // Function reference to notify TeamScreen
+  AddMemberForm({required this.onAddMember});
+
   @override
   _AddMemberFormState createState() => _AddMemberFormState();
 }
@@ -109,7 +115,7 @@ class _AddMemberFormState extends State<AddMemberForm> {
             ),
             ElevatedButton(
               onPressed: () {
-                _submitForm();
+                _submitForm(context);
               },
               child: Text('Add Member'),
             ),
@@ -119,10 +125,11 @@ class _AddMemberFormState extends State<AddMemberForm> {
     );
   }
 
-  void _submitForm() {
+  void _submitForm(BuildContext context) {
     if (_formKey.currentState!.validate()) {
       _formKey.currentState!.save();
-      Team.addMember(
+      widget.onAddMember(
+        // Call the function reference
         Team(
           name: _name,
           imageUrl: _imageUrl,

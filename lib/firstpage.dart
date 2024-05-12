@@ -16,8 +16,13 @@ class FirstPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('StormHive'),
-        backgroundColor: Color.fromARGB(255, 0, 157, 63),
+        title: const Text(
+          'StormHive',
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+        backgroundColor: Color.fromARGB(255, 112, 49, 149),
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -53,6 +58,12 @@ class FirstPage extends StatelessWidget {
               ),
             ),
             ListTile(
+              title: const Text('Services We Provide'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
               title: const Text('Contact Us'),
               onTap: () {
                 showDialog(
@@ -81,7 +92,6 @@ class FirstPage extends StatelessWidget {
             ListTile(
               title: const Text('Rate Our App'),
               onTap: () {
-                Navigator.pop(context);
                 showDialog(
                   context: context,
                   builder: (BuildContext context) {
@@ -105,16 +115,10 @@ class FirstPage extends StatelessWidget {
                 );
               },
             ),
-            ListTile(
-              title: const Text('Services We Provide'),
-              onTap: () {
-                Navigator.pop(context); // Close the drawer
-              },
-            ),
           ],
         ),
       ),
-      body: const MainScreen(), // Set background color here
+      body: const MainScreen(),
     );
   }
 
@@ -174,7 +178,7 @@ class _MainScreenState extends State<MainScreen> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: const Color.fromARGB(255, 0, 157, 63),
+        backgroundColor: Color.fromARGB(255, 99, 43, 132),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -189,6 +193,8 @@ class _MainScreenState extends State<MainScreen> {
             label: 'Profile',
           ),
         ],
+        selectedLabelStyle: TextStyle(color: Colors.white),
+        unselectedLabelStyle: TextStyle(color: Colors.black45),
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
       ),
