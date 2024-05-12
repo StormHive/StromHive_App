@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:stormhive/addmember.dart';
 import 'package:stormhive/team.dart';
 
-class TeamScreen extends StatelessWidget {
-  final List<Team> teamMembers = Team.projects;
+class TeamScreen extends StatefulWidget {
+  @override
+  _TeamScreenState createState() => _TeamScreenState();
+}
 
-  TeamScreen({super.key});
+class _TeamScreenState extends State<TeamScreen> {
+  final List<Team> teamMembers = Team.projects;
 
   @override
   Widget build(BuildContext context) {
@@ -12,20 +16,74 @@ class TeamScreen extends StatelessWidget {
       body: ListView.builder(
         itemCount: teamMembers.length,
         itemBuilder: (BuildContext context, int index) {
-          return TeamMemberCard(teamMember: teamMembers[index]);
+          return TeamMemberCard(
+            teamMember: teamMembers[index],
+            onDelete: () {
+              _deleteTeamMember(index);
+            },
+            onEdit: () {
+              _navigateToEditScreen(context, teamMembers[index], index);
+            },
+          );
         },
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => AddTeamMemberScreen()),
+          );
+        },
+        child: Icon(Icons.add),
+      ),
     );
+  }
+
+  void addTeamMember(Team newMember) {
+    setState(() {
+      Team.addMember(newMember);
+    });
+  }
+
+  void _deleteTeamMember(int index) {
+    setState(() {
+      Team.deleteMember(index);
+    });
+  }
+
+  void _navigateToEditScreen(BuildContext context, Team teamMember, int index) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => EditTeamMemberScreen(
+          teamMember: teamMember,
+          onUpdate: (updatedMember) {
+            _updateTeamMember(index, updatedMember);
+            Navigator.pop(context);
+          },
+        ),
+      ),
+    );
+  }
+
+  void _updateTeamMember(int index, Team updatedMember) {
+    setState(() {
+      Team.updateMember(index, updatedMember);
+    });
   }
 }
 
 class TeamMemberCard extends StatelessWidget {
   final Team teamMember;
+  final VoidCallback onDelete;
+  final VoidCallback onEdit;
 
   const TeamMemberCard({
-    super.key,
+    Key? key,
     required this.teamMember,
-  });
+    required this.onDelete,
+    required this.onEdit,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -116,8 +174,54 @@ class TeamMemberCard extends StatelessWidget {
               ],
             ),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [
+              IconButton(
+                icon: Icon(Icons.edit),
+                onPressed: onEdit,
+              ),
+              IconButton(
+                icon: Icon(Icons.delete),
+                onPressed: onDelete,
+              ),
+            ],
+          ),
         ],
       ),
     );
+  }
+}
+
+void _navigateToEditScreen(BuildContext context, Team teamMember, int index) {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => EditTeamMemberScreen(
+        teamMember: teamMember,
+        onUpdate: (updatedMember) {
+         // _updateTeamMember(index, updatedMember);
+          Navigator.pop(context);
+        },
+      ),
+    ),
+  );
+}
+
+class EditTeamMemberScreen extends StatelessWidget {
+  final Team teamMember;
+  final Function(Team) onUpdate;
+
+  const EditTeamMemberScreen({
+    Key? key,
+    required this.teamMember,
+    required this.onUpdate,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    // Implement UI for editing team member details using a form
+    // When the form is submitted, call onUpdate with the updated team member
+    throw UnimplementedError();
   }
 }

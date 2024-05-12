@@ -60,6 +60,43 @@ class ProjectsScreen extends StatelessWidget {
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: Text('Add Category'),
+                content: TextField(
+                  decoration: InputDecoration(hintText: 'Enter category name'),
+                  onChanged: (value) {
+                    // Handle changes in the text field
+                  },
+                ),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: Text('Cancel'),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      // Implement functionality to add the new category
+                      // You can use the entered category name stored in the text field
+                      Navigator.pop(context);
+                    },
+                    child: Text('Add'),
+                  ),
+                ],
+              );
+            },
+          );
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.blue, // Set the FAB background color
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

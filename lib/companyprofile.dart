@@ -3,7 +3,18 @@ import 'package:stormhive/contactus.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CompanyProfile extends StatelessWidget {
-  const CompanyProfile({super.key});
+  final ScrollController _scrollController = ScrollController();
+
+  CompanyProfile({super.key});
+  void scrollToOurServices() {
+        print("Scrolling to Our Services");
+
+    _scrollController.animateTo(
+      _scrollController.position.maxScrollExtent, // Scroll to the bottom
+      duration: Duration(milliseconds: 500),
+      curve: Curves.easeInOut,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +53,7 @@ class CompanyProfile extends StatelessWidget {
                       'Welcome to StormHive - Your Partner in Digital Transformation!',
                       style: GoogleFonts.freehand(
                         textStyle: TextStyle(
-                          fontSize: 16.0,
+                          fontSize: 24.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -64,7 +75,7 @@ class CompanyProfile extends StatelessWidget {
                       'Our Mission:',
                       style: GoogleFonts.freehand(
                         textStyle: TextStyle(
-                          fontSize: 16.0,
+                          fontSize: 24.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -86,7 +97,7 @@ class CompanyProfile extends StatelessWidget {
                       'Our Services:',
                       style: GoogleFonts.poppins(
                         textStyle: TextStyle(
-                          fontSize: 16.0,
+                          fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.amber,
                         ),
@@ -148,7 +159,7 @@ class CompanyProfile extends StatelessWidget {
                       'Our Vision:',
                       style: GoogleFonts.freehand(
                         textStyle: TextStyle(
-                          fontSize: 16.0,
+                          fontSize: 24.0,
                           fontWeight: FontWeight.bold,
                           color: Colors.white,
                         ),
@@ -238,7 +249,6 @@ class CompanyProfile extends StatelessWidget {
                 ),
               ),
               Divider(),
-              // Add more information as needed
             ],
           ),
         ),

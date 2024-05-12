@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:stormhive/automation_tool_screen.dart';
 import 'package:stormhive/companyprofile.dart';
+import 'package:stormhive/contactus.dart';
+import 'package:stormhive/mobile_app_screen.dart';
 import 'package:stormhive/projects.dart';
+import 'package:stormhive/rating.dart';
+import 'package:stormhive/seacrh.dart';
 import 'package:stormhive/teamscreen.dart';
+import 'package:stormhive/websites_screen.dart';
 
 class FirstPage extends StatelessWidget {
   const FirstPage({super.key});
@@ -22,6 +28,19 @@ class FirstPage extends StatelessWidget {
             );
           },
         ),
+        actions: [
+          IconButton(
+            icon: Icon(Icons.search),
+            onPressed: () {
+              showSearch(
+                context: context,
+                delegate: AppSearchDelegate(),
+              ).then((value) {
+                _handleSearchResult(context, value!);
+              });
+            },
+          ),
+        ],
       ),
       drawer: Drawer(
         child: ListView(
@@ -34,23 +53,61 @@ class FirstPage extends StatelessWidget {
               ),
             ),
             ListTile(
-              title: const Text('Item 1'),
+              title: const Text('Contact Us'),
               onTap: () {
-                // Add your onTap logic here
-                Navigator.pop(context); // Close the drawer
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      content: Container(
+                        width: MediaQuery.of(context).size.width * 0.8,
+                        child: SingleChildScrollView(
+                          child: ContactUsCard(),
+                        ),
+                      ),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text('Close'),
+                        ),
+                      ],
+                    );
+                  },
+                );
               },
             ),
             ListTile(
-              title: const Text('Item 2'),
+              title: const Text('Rate Our App'),
               onTap: () {
-                // Add your onTap logic here
-                Navigator.pop(context); // Close the drawer
+                Navigator.pop(context);
+                showDialog(
+                  context: context,
+                  builder: (BuildContext context) {
+                    return AlertDialog(
+                      title: Text('Rate Us'),
+                      content: Rating(
+                        initialRating: 0,
+                        size: 20.0,
+                        onRated: (int value) {},
+                      ),
+                      actions: <Widget>[
+                        TextButton(
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
+                          child: Text('Close'),
+                        ),
+                      ],
+                    );
+                  },
+                );
               },
             ),
             ListTile(
-              title: const Text('Item 3'),
+              title: const Text('Services We Provide'),
               onTap: () {
-                // Add your onTap logic here
                 Navigator.pop(context); // Close the drawer
               },
             ),
@@ -59,6 +116,32 @@ class FirstPage extends StatelessWidget {
       ),
       body: const MainScreen(), // Set background color here
     );
+  }
+
+  void _handleSearchResult(BuildContext context, String result) {
+    if (result == 'website') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => WebsiteProjectsScreen()),
+      );
+    } else if (result == 'mobile') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => MobileAppProjectsScreen()),
+      );
+    } else if (result == 'automation') {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => AutomationProjectsScreen()),
+      );
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(
+          content: Text('No result found'),
+          duration: Duration(seconds: 2),
+        ),
+      );
+    }
   }
 }
 

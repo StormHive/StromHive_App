@@ -6,38 +6,50 @@ class Team {
   String experience;
   String skills;
 
-  Team(
-    this.name,
-    this.imageUrl,
-    this.position,
-    this.expertise,
-    this.experience,
-    this.skills,
-  );
+  Team({
+    required this.name,
+    required this.imageUrl,
+    required this.position,
+    required this.expertise,
+    required this.experience,
+    required this.skills,
+  });
   static List<Team> projects = [
     Team(
-      'Saad Ahmad',
-      'assets/SaadAhmad.jpeg',
-      'Software Engineer',
-      'CEO',
-      'More than 3 years',
-      'Project Management, Strategic Logics, Solutions Architect, Mobile Application Development',
+      name: 'Saad Ahmad',
+      imageUrl: 'assets/SaadAhmad.jpeg',
+      expertise: 'Software Engineer',
+      position: 'CEO',
+      experience:'More than 3 years',
+      skills: 'Project Management, Strategic Logics, Solutions Architect, Mobile Application Development', 
     ),
     Team(
-      'Ali Abdullah',
-      'assets/Aliabdullah.jpeg',
-      'Software Engineer',
-      'CTO',
-      'More than 3 years',
-      'Pyhton, Django, AWS, Website Development',
+      name: 'Ali Abdullah',
+      imageUrl: 'assets/Aliabdullah.jpeg',
+      expertise: 'Software Engineer',
+      position: 'CTO',
+      experience:'More than 3 years',
+      skills: 'Pyhton, Django, AWS, Website Development',
     ),
     Team(
-      'Muhammad Ahmad Aamir',
-      'assets/AhmadAamir.jpeg',
-      'Software Engineer',
-      'COO',
-      'More than 3 years',
-      'Designing, Reactjs, Bootstrap, Frontend Development',
+      name: 'Muhammad Ahmad Aamir',
+      imageUrl: 'assets/AhmadAamir.jpeg',
+      expertise: 'Software Engineer',
+      position: 'COO',
+      experience:'More than 3 years',
+      skills: 'Designing, Reactjs, Bootstrap, Frontend Development',
     ),
   ];
+
+  static void addMember(Team member) {
+    projects.add(member);
+  }
+
+  static void updateMember(int index, Team updatedMember) {
+    projects[index] = updatedMember;
+  }
+
+  static void deleteMember(int index) {
+    projects.removeAt(index);
+  }
 }
